@@ -11,5 +11,7 @@ public class SumOfNumbersUsingReduce {
 
         int sum = numbers.stream()
                 .reduce(0, Integer::sum);
+
+        System.out.println(sum);
     }
 }

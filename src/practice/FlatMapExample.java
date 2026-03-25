@@ -1,5 +1,4 @@
 package practice;
-
 import java.util.stream.*;
 import java.util.*;
 public class FlatMapExample{
@@ -13,7 +12,7 @@ public class FlatMapExample{
 										);
 
 		List<Integer> flatList = nestedList.stream()
-								.flatMap(List::stream)
+								.flatMap(list->list.stream())
 								.distinct()
 								.sorted(Comparator.reverseOrder())
 								.collect(Collectors.toList());

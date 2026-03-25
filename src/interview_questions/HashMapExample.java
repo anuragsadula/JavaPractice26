@@ -1,10 +1,7 @@
 package interview_questions;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import static jdk.nashorn.internal.objects.NativeArray.forEach;
+import java.util.Set;
 
 public class HashMapExample {
 
@@ -22,16 +19,23 @@ public class HashMapExample {
         map2.put("jack","Medium");
         map2.put("new","Bad");
 
-        for(int i=0;i<map1.size();i++){
+        Set<Integer> keys = map1.keySet();
 
-            if(map2.containsKey(String.valueOf(map1.get(i)))){
-                //map3.put(map1., map2.get(i));
+        //System.out.println(keys);
+
+        HashMap<Integer,String> map3 = new HashMap<>();
+
+        for(Integer i:keys){
+
+            if(map2.containsKey(map1.get(i))){
+
+                map3.put(i,map2.get(map1.get(i)));
             }
         }
 
-        Map<Integer,String>map3 =  map1.entrySet().stream()
-                .filter(e -> e.getValue().equals(map2.get(e.getKey())))
-                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        // Map<Integer,String>map4 =  map1.entrySet().stream()
+        //         .filter(e -> e.getValue().equals(map2.get(e.getKey())))
+        //          .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
         System.out.println(map3);
 

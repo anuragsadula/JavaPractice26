@@ -4,8 +4,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static java.util.Collections.max;
-
 public class CharacterFrequency {
 
     public static void main(String[] args) {

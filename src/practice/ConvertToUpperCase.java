@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static jdk.nashorn.internal.objects.NativeArray.forEach;
-
 public class ConvertToUpperCase {
 
     public static void main(String[] args){

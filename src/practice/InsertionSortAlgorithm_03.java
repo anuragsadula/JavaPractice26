@@ -49,5 +49,7 @@ public class InsertionSortAlgorithm_03 {
 
             System.out.print(arr[i] + " ");
         }
+
+        input.close();
     }
 }
