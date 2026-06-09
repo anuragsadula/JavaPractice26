@@ -19,6 +19,16 @@ class Product{
         Product other = (Product) obj;
         return id == other.id;
     }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return id;
+    }
 }
 
 public class EqualsMethodExample {
