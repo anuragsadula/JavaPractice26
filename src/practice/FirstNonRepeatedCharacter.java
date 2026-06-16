@@ -1,10 +1,15 @@
 package practice;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public class FirstNonRepeatedCharacter {
 
     public static void main(String[] args){
 
-        String input = "thfdljklht";
+        String input = "geeksforgeeks";
 
         Character result = input.chars()
                 .mapToObj(c -> (char) c)
@@ -12,8 +17,18 @@ public class FirstNonRepeatedCharacter {
                 .findFirst()
                 .orElse(null);
 
-        System.out.print("The first non-repeated character in the string \"" + input + "\" is: ");
+        System.out.println("The first non-repeated character in the string \"" + input + "\" is: "+result);
 
-        System.out.println(result);
+        Character character = input.chars()
+                .mapToObj(c -> (char)c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new,Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry->entry.getValue()==1L)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+
+        System.out.println(character);
     }
 }
